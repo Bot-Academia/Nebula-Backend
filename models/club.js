@@ -2,14 +2,33 @@ const mongoose  = require('mongoose');
 
 const clubSchema = mongoose.Schema({
     _id:mongoose.Types.ObjectId,
-    name: String,
-    startDate: { type: Date, default: Date.now },
+    name: {
+        type: String,
+        required:true,
+        unique: true
+    },
+    startDate: { type: Date, default: Date.now,required: true },
     coverImage: String,
-    admin: mongoose.Types.ObjectId,
-    team: Array,
-    members: Array,
-    description: String,
-    events: Array,
+    admin: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    },
+    team: {
+        type: Array,
+        ref: 'User'
+    }
+    members: {
+        type: Array,
+        ref: 'User'
+    },
+    description: {
+        type:String,
+        trim: true
+    }
+    events: {
+        type: Array,
+        ref: 'Event'
+    }
     ircchannel: String,
     instagram: String,
     facebook: String,
