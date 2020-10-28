@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const userSchema = mongoose.Schema({
-  _id: mongoose.Types.ObjectId,
   avatar: String,
   name: {
     type: String,
@@ -29,9 +28,8 @@ const userSchema = mongoose.Schema({
     trim: true,
   },
   clubs: {
-    owner: Array,
-    member: Array,
-    ref: 'Club',
+    owner: { type: [{ type: mongoose.Types.ObjectId, ref: 'Club' }] },
+    member: { type: [{ type: mongoose.Types.ObjectId, ref: 'Club' }] },
   },
 }, { timestamps: true });
 

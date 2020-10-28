@@ -1,13 +1,16 @@
 const Router = require('express');
+const controllers = require('../../controllers/user');
+const User = require('../../models/user');
 
 const router = Router();
 
-router.route('/users')
-  .get((req, res) => {
-    res.send({ msg: 'Users' });
-  })
-  .post((req, res) => {
-    res.send({ msg: 'Users POST' });
-  });
+router.route('/')
+  .get(controllers.getAll);
+
+router.route('/signup')
+  .post(controllers.createOne);
+
+router.route('/:id')
+  .get(controllers.getOne);
 
 module.exports = router;
