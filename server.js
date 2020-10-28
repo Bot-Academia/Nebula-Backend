@@ -4,9 +4,9 @@ const { json, urlencoded } = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const connect = require('./utils/db');
-const eventsRoute = require('./Routes/events/index');
-const communityRoute = require('./Routes/community/index');
-const userRoute = require('./Routes/user/index');
+const eventsRoute = require('./routes/event');
+const communityRoute = require('./routes/club');
+const userRoute = require('./routes/user');
 
 const app = express();
 
@@ -23,7 +23,7 @@ app.use('/api/user', userRoute);
 
 const start = async () => {
   try {
-    // await connect();
+    await connect();
     app.listen(process.env.PORT, () => {
       console.log(`REST API on http://localhost:${process.env.PORT}/api`);
     });
