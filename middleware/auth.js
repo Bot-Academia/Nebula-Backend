@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const { verifyToken } = require('../utils/auth');
+const  verifyToken  = require('../utils/auth');
 
 export const authenticate = async (req, res, next) => {
   const bearer = req.headers.authorization;
