@@ -4,8 +4,11 @@ const { json, urlencoded } = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const connect = require('./utils/db');
+const eventsRoute = require('./Routes/events/index');
+const communityRoute = require('./Routes/community/index');
+const userRoute = require('./Routes/user/index');
 
-export const app = express();
+const app = express();
 
 app.disable('x-powered-by');
 
@@ -14,9 +17,13 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-export const start = async () => {
+app.use('/api/events', eventsRoute);
+app.use('/api/community', communityRoute);
+app.use('/api/user', userRoute);
+
+const start = async () => {
   try {
-    await connect();
+    // await connect();
     app.listen(process.env.PORT, () => {
       console.log(`REST API on http://localhost:${process.env.PORT}/api`);
     });
@@ -24,3 +31,5 @@ export const start = async () => {
     console.error(e);
   }
 };
+
+module.exports = start;
