@@ -11,5 +11,9 @@ module.exports = {
     ecmaVersion: 12,
   },
   rules: {
+    'no-underscore-dangle': 'off',
+    'linebreak-style': 'off',
+    'import/no-named-as-default': 'off',
+    'import/no-named-as-default-member': 'off',
   },
 };

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rm -rf build && babel ./ --out-dir ./build --include-dotfiles --copy-files --ignore \"node_modules/**/*\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index",
+    "dev": "nodemon index.js",
     "start": "node index",
     "lint": "eslint --fix --ext .js ."
   },
