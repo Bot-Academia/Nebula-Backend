@@ -2,12 +2,12 @@ const Router = require('express');
 
 const router = Router();
 
-router.route('/users')
+router.route('/clubs')
   .get((req, res) => {
-    res.send({ msg: 'Users' });
+    res.send({ msg: 'Clubs' });
   })
   .post((req, res) => {
-    res.send({ msg: 'Users POST' });
+    res.send({ msg: 'Clubs POST' });
   });
 
 module.exports = router;
