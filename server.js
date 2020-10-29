@@ -18,7 +18,7 @@ app.use(urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 app.use('/api/events', eventsRoute);
-app.use('/api/community', communityRoute);
+app.use('/api/clubs', communityRoute);
 app.use('/api/user', userRoute);
 
 const start = async () => {
