@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const Router = require('express');
 const model = require('../../models/event');
 

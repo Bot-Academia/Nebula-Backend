@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const clubSchema = mongoose.Schema({
-  _id: mongoose.Types.ObjectId,
   name: {
     type: String,
     required: true,
