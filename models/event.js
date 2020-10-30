@@ -25,8 +25,9 @@ const eventSchema = mongoose.Schema({
     ref: 'Club',
   },
   status: {
-    type: String,
-    default: 'Draft',
+    type: Boolean,
+    default: true,
+    required: true,
   },
 },
 { timestamps: true });
