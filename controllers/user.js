@@ -1,5 +1,7 @@
 const User = require('../models/user');
-const newToken = require('../utils/auth');
+const auth = require('../utils/auth');
+
+const { newToken } = auth;
 
 const controllers = {
 
