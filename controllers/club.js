@@ -1,10 +1,12 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-console */
-
 // routes for "/"
-const getAll = (model) => async (req, res) => {
+const Club = require('../models/club');
+const User = require('../models/user');
+
+const getAll = () => async (req, res) => {
   try {
-    const docs = await model
+    const docs = await Club
       .find({ })
       .lean()
       .exec();
@@ -16,11 +18,13 @@ const getAll = (model) => async (req, res) => {
   }
 };
 
-const createOne = (model) => async (req, res) => {
+const createOne = () => async (req, res) => {
   try {
-    const doc = await model.create({ ...req.body });
-    const newDoc= await model.findOneAndUpdate({_id:doc._id},{admin:req.user._id},{new:true})
-    .exec();
+    const doc = await Club.create({ ...req.body });
+    const newDoc = await Club.findOneAndUpdate({ _id: doc._id }, { admin: req.user._id }, { new: true })
+      .exec();
+    const user = await User.findOneAndUpdate({ _id: req.user._id }, { $push: { 'clubs.owner': newDoc._id } }, { new: true })
+      .exec();
     res.status(201).json({ data: newDoc });
   } catch (e) {
     console.error(e);
@@ -29,9 +33,9 @@ const createOne = (model) => async (req, res) => {
 };
 
 // routes for  "/:id"
-const getOne = (model) => async (req, res) => {
+const getOne = () => async (req, res) => {
   try {
-    const doc = await model
+    const doc = await Club
       .findOne({ _id: req.params.id })
       .lean()
       .exec();
@@ -47,11 +51,13 @@ const getOne = (model) => async (req, res) => {
   }
 };
 
-const deleteOne = (model) => async (req, res) => {
+const deleteOne = () => async (req, res) => {
   try {
-    const removed = await model.findOneAndRemove({
+    const removed = await Club.findOneAndRemove({
       _id: req.params.id,
     });
+    const user = await User.findOneAndUpdate({ _id: req.user._id }, { $pull: { 'clubs.owner': req.params.id } }, { new: true })
+      .exec();
 
     if (!removed) {
       return res.status(400).end();

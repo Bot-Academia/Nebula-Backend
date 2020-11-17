@@ -5,6 +5,7 @@ const clubSchema = mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    trim: true,
   },
   startDate: { type: Date, default: Date.now, required: true },
   coverImage: String,
@@ -12,22 +13,13 @@ const clubSchema = mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'User',
   },
-  team: {
-    type: Array,
-    ref: 'User',
-  },
-  members: {
-    type: Array,
-    ref: 'User',
-  },
+  team: { type: [{ type: mongoose.Types.ObjectId, ref: 'User' }] },
+  members: { type: [{ type: mongoose.Types.ObjectId, ref: 'User' }] },
   description: {
     type: String,
     trim: true,
   },
-  events: {
-    type: Array,
-    ref: 'Event',
-  },
+  events: { type: [{ type: mongoose.Types.ObjectId, ref: 'Event' }] },
   ircchannel: String,
   instagram: String,
   facebook: String,
