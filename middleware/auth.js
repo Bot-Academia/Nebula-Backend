@@ -1,9 +1,10 @@
 const User = require('../models/user');
-const  verifyToken  = require('../utils/auth');
+const auth = require('../utils/auth');
 
-export const authenticate = async (req, res, next) => {
+const { verifyToken } = auth;
+
+const authenticate = async (req, res, next) => {
   const bearer = req.headers.authorization;
-
   if (!bearer || !bearer.startsWith('Bearer ')) {
     return res.status(401).end();
   }
@@ -16,10 +17,7 @@ export const authenticate = async (req, res, next) => {
     return res.status(401).end();
   }
 
-  const user = await User.findById(payload.id)
-    .select('-password')
-    .lean()
-    .exec();
+  const user = await User.findById(payload.id).exec();
 
   if (!user) {
     return res.status(401).end();
@@ -28,3 +26,5 @@ export const authenticate = async (req, res, next) => {
   req.user = user;
   next();
 };
+
+module.exports = authenticate;

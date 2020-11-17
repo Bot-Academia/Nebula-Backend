@@ -2,7 +2,7 @@ const Router = require('express');
 const model = require('../../models/event');
 const {
   getAll, deleteOne, getOne, createOne,
-} = require('../../controllers/crud');
+} = require('../../controllers/event');
 
 const router = Router();
 

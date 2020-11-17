@@ -6,7 +6,7 @@ const newToken = (user) => {
 };
 
 const verifyToken = (token) => new Promise((resolve, reject) => {
-  jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
+  jwt.verify(token,Buffer.from('process.env.JWT_SECRET').toString('base64'), (err, payload) => {
     if (err) return reject(err);
     resolve(payload);
   });
