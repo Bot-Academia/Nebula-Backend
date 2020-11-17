@@ -10,6 +10,9 @@ router.route('/')
 router.route('/signup')
   .post(controllers.createOne);
 
+router.route('/login')
+  .get(controllers.login);
+
 router.route('/:id')
   .get(controllers.getOne);
 
