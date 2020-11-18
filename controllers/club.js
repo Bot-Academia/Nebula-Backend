@@ -70,9 +70,28 @@ const deleteOne = () => async (req, res) => {
   }
 };
 
+const join = () => async (req, res) => {
+  try {
+    const club = await Club.findOne({ _id: req.params.id });
+    if (!club) {
+      return res.status(400).end();
+    }
+
+    if (club.admin == String(req.user._id)) return res.status(401).json({ message: 'Already Admin' });
+
+    const newClub = await Club.findOneAndUpdate({ _id: req.params.id }, { $push: { members: req.user._id } }, { new: true }).exec();
+    const user = await User.findOneAndUpdate({ _id: req.user._id }, { $push: { 'clubs.member': req.params.id } }, { new: true }).exec();
+    return res.status(200).json({ data: newClub });
+  } catch (e) {
+    console.error(e);
+    res.status(400).end();
+  }
+};
+
 module.exports = {
   getAll,
   createOne,
   getOne,
   deleteOne,
+  join,
 };
