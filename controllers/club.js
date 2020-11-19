@@ -77,7 +77,8 @@ const join = () => async (req, res) => {
       return res.status(400).end();
     }
 
-    if (club.admin == String(req.user._id)) return res.status(401).json({ message: 'Already Admin' });
+    if (club.admin == String(req.user._id)) return res.status(403).json({ message: 'Already Admin' });
+    if (club.members.includes(String(req.user._id))) return res.status(403).json({ message: 'Already Member' });
 
     const newClub = await Club.findOneAndUpdate({ _id: req.params.id }, { $push: { members: req.user._id } }, { new: true }).exec();
     const user = await User.findOneAndUpdate({ _id: req.user._id }, { $push: { 'clubs.member': req.params.id } }, { new: true }).exec();
