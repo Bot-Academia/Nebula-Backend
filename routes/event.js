@@ -1,8 +1,8 @@
 const Router = require('express');
-const model = require('../../models/event');
+const model = require('../models/event');
 const {
   getAll, deleteOne, getOne, createOne,
-} = require('../../controllers/event');
+} = require('../controllers/event');
 
 const router = Router();
 
