@@ -1,6 +1,6 @@
 const Router = require('express');
 const {
-  getAll, deleteOne, getOne, createOne, join, leave,
+  getAll, deleteOne, getOne, createOne, join, leave, addTeam
 } = require('../controllers/club');
 const authenticate = require('../middleware/auth');
 
@@ -10,14 +10,17 @@ router.route('/')
   .get(getAll())
   .post(authenticate, createOne());
 
-router.route('/:id')
+router.route('/:orgId')
   .get(getOne())
   .delete(authenticate, deleteOne());
 
-router.route('/join/:id')
+router.route('/join/:orgId')
   .put(authenticate, join());
 
-router.route('/leave/:id')
+router.route('/leave/:orgId')
   .put(authenticate, leave());
+
+router.route('/addteam/:orgId/:userId')
+  .put(authenticate, addTeam());
 
 module.exports = router;
