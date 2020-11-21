@@ -1,6 +1,6 @@
 const Router = require('express');
 const {
-  getAll, deleteOne, getOne, createOne, join, leave, addTeam
+  getAll, deleteOne, getOne, createOne, join, leave, addTeam, removeTeam, changeAdmin,
 } = require('../controllers/club');
 const authenticate = require('../middleware/auth');
 
@@ -20,7 +20,11 @@ router.route('/join/:orgId')
 router.route('/leave/:orgId')
   .put(authenticate, leave());
 
-router.route('/addteam/:orgId/:userId')
-  .put(authenticate, addTeam());
+router.route('/team/:orgId/:userId')
+  .put(authenticate, addTeam())
+  .delete(authenticate, removeTeam());
+
+router.route('/changeadmin/:orgId/:userId')
+  .put(authenticate, changeAdmin());
 
 module.exports = router;
