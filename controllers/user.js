@@ -49,7 +49,7 @@ const controllers = {
     }
   },
   getOne: async (req, res) => {
-    const _id = req.params.id;
+    const _id = req.params.userId;
     const user = await User.findOne({ _id }).exec();
     if (!user) {
       return res.status(404).json({ message: 'User not found' });

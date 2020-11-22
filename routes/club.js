@@ -10,21 +10,21 @@ router.route('/')
   .get(getAll())
   .post(authenticate, createOne());
 
-router.route('/:orgId')
+router.route('/:clubId')
   .get(getOne())
   .delete(authenticate, deleteOne());
 
-router.route('/join/:orgId')
+router.route('/join/:clubId')
   .put(authenticate, join());
 
-router.route('/leave/:orgId')
+router.route('/leave/:clubId')
   .put(authenticate, leave());
 
-router.route('/team/:orgId/:userId')
+router.route('/team/:clubId/:userId')
   .put(authenticate, addTeam())
   .delete(authenticate, removeTeam());
 
-router.route('/changeadmin/:orgId/:userId')
+router.route('/changeadmin/:clubId/:userId')
   .put(authenticate, changeAdmin());
 
 module.exports = router;
