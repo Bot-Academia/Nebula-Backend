@@ -13,7 +13,7 @@ router.route('/signup')
 router.route('/login')
   .get(controllers.login);
 
-router.route('/:id')
+router.route('/:userId')
   .get(controllers.getOne);
 
 module.exports = router;

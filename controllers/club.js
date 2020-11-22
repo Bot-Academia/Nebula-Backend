@@ -32,11 +32,11 @@ const createOne = () => async (req, res) => {
   }
 };
 
-// routes for  "/:orgId"
+// routes for  "/:clubId"
 const getOne = () => async (req, res) => {
   try {
     const doc = await Club
-      .findOne({ _id: req.params.orgId })
+      .findOne({ _id: req.params.clubId })
       .lean()
       .exec();
 
@@ -53,17 +53,17 @@ const getOne = () => async (req, res) => {
 
 const deleteOne = () => async (req, res) => {
   try {
-    const club = Club.findOne({ _id: req.params.orgId });
+    const club = await Club.findOne({ _id: req.params.clubId });
     if (club.team.includes(String(req.user._id))) return res.status(403).json({ message: 'Not allowed' });
     if (club.members.includes(String(req.user._id))) return res.status(403).json({ message: 'Not allowed' });
     const removed = await Club.findOneAndRemove({
-      _id: req.params.orgId,
+      _id: req.params.clubId,
     });
     if (!removed) {
       return res.status(400).end();
     }
 
-    const user = await User.findOneAndUpdate({ _id: req.user._id }, { $pull: { 'clubs.owner': req.params.orgId } }, { new: true })
+    const user = await User.findOneAndUpdate({ _id: req.user._id }, { $pull: { 'clubs.owner': req.params.clubId } }, { new: true })
       .exec();
 
     return res.status(200).json({ data: removed });
@@ -75,17 +75,17 @@ const deleteOne = () => async (req, res) => {
 
 const join = () => async (req, res) => {
   try {
-    const club = await Club.findOne({ _id: req.params.orgId });
+    const club = await Club.findOne({ _id: req.params.clubId });
     if (!club) {
       return res.status(400).end();
     }
 
-    if (club.admin === String(req.user._id)) return res.status(403).json({ message: 'Already Admin' });
+    if (club.admin == String(req.user._id)) return res.status(403).json({ message: 'Already Admin' });
     if (club.team.includes(String(req.user._id))) return res.status(403).json({ message: 'Already in Team' });
     if (club.members.includes(String(req.user._id))) return res.status(403).json({ message: 'Already Member' });
 
-    const newClub = await Club.findOneAndUpdate({ _id: req.params.orgId }, { $push: { members: req.user._id } }, { new: true }).exec();
-    const user = await User.findOneAndUpdate({ _id: req.user._id }, { $push: { 'clubs.member': req.params.orgId } }, { new: true }).exec();
+    const newClub = await Club.findOneAndUpdate({ _id: req.params.clubId }, { $push: { members: req.user._id } }, { new: true }).exec();
+    const user = await User.findOneAndUpdate({ _id: req.user._id }, { $push: { 'clubs.member': req.params.clubId } }, { new: true }).exec();
     return res.status(200).json({ data: newClub });
   } catch (e) {
     console.error(e);
@@ -95,16 +95,16 @@ const join = () => async (req, res) => {
 
 const leave = () => async (req, res) => {
   try {
-    const club = await Club.findOne({ _id: req.params.orgId });
+    const club = await Club.findOne({ _id: req.params.clubId });
     if (!club) {
       return res.status(400).end();
     }
 
-    if (club.admin === String(req.user._id)) return res.status(403).json({ message: 'Not Allowed' });
+    if (club.admin == String(req.user._id)) return res.status(403).json({ message: 'Not Allowed' });
     if (!club.members.includes(String(req.user._id))) return res.status(403).json({ message: 'Not Allowed' });
 
-    const newClub = await Club.findOneAndUpdate({ _id: req.params.orgId }, { $pull: { members: req.user._id }, $pull: { team: req.user._id } }, { new: true }).exec();
-    const user = await User.findOneAndUpdate({ _id: req.user._id }, { $pull: { 'clubs.member': req.params.orgId } }, { new: true }).exec();
+    const newClub = await Club.findOneAndUpdate({ _id: req.params.clubId }, { $pull: { members: req.user._id }, $pull: { team: req.user._id } }, { new: true }).exec();
+    const user = await User.findOneAndUpdate({ _id: req.user._id }, { $pull: { 'clubs.member': req.params.clubId } }, { new: true }).exec();
     return res.status(200).json({ data: newClub });
   } catch (e) {
     console.error(e);
@@ -114,15 +114,15 @@ const leave = () => async (req, res) => {
 
 const addTeam = () => async (req, res) => {
   try {
-    const club = await Club.findOne({ _id: req.params.orgId });
+    const club = await Club.findOne({ _id: req.params.clubId });
     if (!club) {
       return res.status(400).end();
     }
     if (club.team.includes(req.params.userId)) return res.status(400).json({ message: 'Already in Team' });
     if (club.admin == String(req.user._id)) {
       const user = await User.findOne({ _id: req.params.userId });
-      if (user.clubs.member.includes(req.params.orgId)) {
-        const newClub = await Club.findOneAndUpdate({ _id: req.params.orgId }, { $push: { team: req.params.userId } }, { new: true });
+      if (user.clubs.member.includes(req.params.clubId)) {
+        const newClub = await Club.findOneAndUpdate({ _id: req.params.clubId }, { $push: { team: req.params.userId } }, { new: true });
         return res.status(200).json({ data: newClub });
       }
       res.status(400).json({ message: 'Not Member' });
@@ -137,14 +137,14 @@ const addTeam = () => async (req, res) => {
 
 const removeTeam = () => async (req, res) => {
   try {
-    const club = await Club.findOne({ _id: req.params.orgId });
+    const club = await Club.findOne({ _id: req.params.clubId });
     if (!club) {
       return res.status(400).end();
     }
     if (club.team.includes(req.params.userId)) {
       if (club.admin == String(req.user._id)) {
         const user = await User.findOne({ _id: req.params.userId });
-        const newClub = await Club.findOneAndUpdate({ _id: req.params.orgId }, { $pull: { team: req.user._id } }, { new: true });
+        const newClub = await Club.findOneAndUpdate({ _id: req.params.clubId }, { $pull: { team: req.user._id } }, { new: true });
         return res.status(200).json({ data: newClub });
       }
       res.status(400).json({ message: 'Not Authorised' });
@@ -159,16 +159,16 @@ const removeTeam = () => async (req, res) => {
 
 const changeAdmin = () => async (req, res) => {
   try {
-    const club = await Club.findOne({ _id: req.params.orgId });
+    const club = await Club.findOne({ _id: req.params.clubId });
     if (!club) {
       return res.status(400).end();
     }
     if (String(req.user._id) == req.params.userId) return res.status(400).json({ message: 'Not Allowed' });
     if (club.team.includes(req.params.userId)) {
       if (club.admin == String(req.user._id)) {
-        const newAdmin = await User.findOneAndUpdate({ _id: req.params.userId }, { $push: { 'clubs.owner': req.params.orgId }, $pull: { 'clubs.member': req.params.orgId } }, { new: true });
-        const admin = await User.findOneAndUpdate({ _id: req.user._id }, { $pull: { 'clubs.owner': req.params.orgId }, $push: { 'clubs.member': req.params.orgId } }, { new: true });
-        const newClub = await Club.findOneAndUpdate({ _id: req.params.orgId }, { admin: req.params.userId,$push:{team:req.user._id}}, { new: true });
+        const newAdmin = await User.findOneAndUpdate({ _id: req.params.userId }, { $push: { 'clubs.owner': req.params.clubId }, $pull: { 'clubs.member': req.params.clubId } }, { new: true });
+        const admin = await User.findOneAndUpdate({ _id: req.user._id }, { $pull: { 'clubs.owner': req.params.clubId }, $push: { 'clubs.member': req.params.clubId } }, { new: true });
+        const newClub = await Club.findOneAndUpdate({ _id: req.params.clubId }, { admin: req.params.userId,$push:{team:req.user._id}}, { new: true });
         return res.status(200).json({ data: newClub });
       }
       res.status(400).json({ message: 'Not Authorised' });
