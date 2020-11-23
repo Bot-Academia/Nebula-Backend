@@ -11,7 +11,7 @@ router.route('/signup')
   .post(controllers.createOne);
 
 router.route('/login')
-  .get(controllers.login);
+  .post(controllers.login);
 
 router.route('/:userId')
   .get(controllers.getOne);
