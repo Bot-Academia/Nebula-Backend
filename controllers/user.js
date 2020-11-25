@@ -37,10 +37,10 @@ const controllers = {
       if (!user) {
         res.status(404).end();
       }
-      const checkPassword= await user.checkPassword(password);
+      const checkPassword = await user.checkPassword(password);
       if (checkPassword) {
         const token = newToken(user);
-        return res.status(201).send({ token });
+        return res.status(201).json({ token, user });
       }
       return res.status(401).end();
     } catch (e) {
