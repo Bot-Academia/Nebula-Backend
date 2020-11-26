@@ -8,7 +8,7 @@ const router = Router();
 
 router.route('/')
   .get(getAll())
-  .post(createOne());
+  .post(authenticate, createOne());
 
 router.route('/:clubId')
   .get(getOne())
