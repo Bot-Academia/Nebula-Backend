@@ -55,7 +55,7 @@ const controllers = {
         .lean()
         .exec();
 
-      if (!doc) {
+      if (!user) {
         return res.status(400).end();
       }
       user.password = undefined;
