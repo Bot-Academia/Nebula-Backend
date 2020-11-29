@@ -50,7 +50,7 @@ const controllers = {
   },
   getOne: async (req, res) => {
     try {
-      const doc = await User
+      const user = await User
         .findOne({ _id: req.params.userId })
         .lean()
         .exec();
@@ -58,22 +58,12 @@ const controllers = {
       if (!doc) {
         return res.status(400).end();
       }
-
-      res.status(200).json({ data: doc });
+      user.password = undefined;
+      res.status(200).json({ data: user });
     } catch (e) {
       console.error(e);
       res.status(400).end();
     }
-    // const user = await User
-    //   .findOne({ _id: req.params.userId })
-    //   .lean()
-    //   .exec();
-
-    // if (!user) {
-    //   return res.status(404).json({ message: 'User not found' });
-    // }
-
-    // res.status(200).json({ data: user });
   },
 };
 
