@@ -18,6 +18,7 @@ const clubSchema = mongoose.Schema({
   description: {
     type: String,
     trim: true,
+    required: true,
   },
   events: { type: [{ type: mongoose.Types.ObjectId, ref: 'Event' }] },
   ircchannel: String,
