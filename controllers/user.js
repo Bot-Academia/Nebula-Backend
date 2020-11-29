@@ -49,13 +49,31 @@ const controllers = {
     }
   },
   getOne: async (req, res) => {
-    const _id = req.params.userId;
-    const user = await User.findOne({ _id }).exec();
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+    try {
+      const doc = await User
+        .findOne({ _id: req.params.userId })
+        .lean()
+        .exec();
+
+      if (!doc) {
+        return res.status(400).end();
+      }
+
+      res.status(200).json({ data: doc });
+    } catch (e) {
+      console.error(e);
+      res.status(400).end();
     }
-    user.password = undefined;
-    return res.status(200).json({ data: user });
+    // const user = await User
+    //   .findOne({ _id: req.params.userId })
+    //   .lean()
+    //   .exec();
+
+    // if (!user) {
+    //   return res.status(404).json({ message: 'User not found' });
+    // }
+
+    // res.status(200).json({ data: user });
   },
 };
 
