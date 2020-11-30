@@ -1,15 +1,7 @@
 # Nebula-Backend
 
-<p align="center">
-    <a href="https://github.com/CodeChef-SMVDU/Nebula-Backend/issues">
-        <img alt="GitHub issues" src="https://img.shields.io/github/issues/CodeChef-SMVDU/Nebula-Backend?style=plastic">
-    </a>
-    <a href="https://github.com/CodeChef-SMVDU/Nebula-Backend/blob/master/LICENSE">
-        <img alt="GitHub license" src="https://img.shields.io/github/license/CodeChef-SMVDU/Nebula-Backend">
-    </a>
-    
   ![Node.js CI](https://github.com/CodeChef-SMVDU/Nebula-Backend/workflows/Node.js%20CI/badge.svg)
-</p>
+
 
 
 ## Prerequisite: 
