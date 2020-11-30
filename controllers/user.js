@@ -18,7 +18,7 @@ const controllers = {
     try {
       const user = await User.create(req.body);
       const token = newToken(user);
-      return res.status(201).send({ token });
+      return res.status(201).send({ token, user });
     } catch (e) {
       console.error(e);
       return res.status(500).end();
@@ -34,15 +34,15 @@ const controllers = {
       const { email } = req.body;
       const { password } = req.body;
       const user = await User.findOne({ email }).exec();
-      if (!user) {
-        res.status(404).end();
+      if (user==null) {
+      return res.status(404).json({message:'Wrong Email'});
       }
       const checkPassword = await user.checkPassword(password);
       if (checkPassword) {
         const token = newToken(user);
         return res.status(201).json({ token, user });
       }
-      return res.status(401).end();
+      return res.status(401).json({message:'Wrong Password'});
     } catch (e) {
       console.error(e);
       return res.status(500).end();
