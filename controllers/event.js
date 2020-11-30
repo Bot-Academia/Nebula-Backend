@@ -18,7 +18,7 @@ const getAll = () => async (req, res) => {
     res.status(200).json({ data: event });
   } catch (e) {
     console.error(e);
-    res.status(400).end();
+    res.status(404).json({message:"Not Found"});
   }
 };
 
@@ -40,7 +40,7 @@ const createOne = () => async (req, res) => {
     }
   } catch (e) {
     console.error(e);
-    res.status(404).end();
+    res.status(404).json({message:"Not Found"});
   }
 };
 
@@ -67,7 +67,7 @@ const getOne = () => async (req, res) => {
     }
   } catch (e) {
     console.error(e);
-    res.status(400).end();
+    res.status(404).json({message:"Not Found"});
   }
 };
 
@@ -86,7 +86,7 @@ const deleteOne = () => async (req, res) => {
     }
   } catch (e) {
     console.error(e);
-    res.status(404).end();
+    res.status(404).json({message:"Not Found"});
   }
 };
 
@@ -104,7 +104,7 @@ const changeStatus = () => async (req, res) => {
     }
   } catch (e) {
     console.error(e);
-    res.status(404).end();
+    res.status(404).json({message:"Not Found"});
   }
 };
 
