@@ -34,15 +34,15 @@ const controllers = {
       const { email } = req.body;
       const { password } = req.body;
       const user = await User.findOne({ email }).exec();
-      if (user==null) {
-      return res.status(404).json({message:'Wrong Email'});
+      if (user == null) {
+        return res.status(404).json({ message: 'Wrong Email' });
       }
       const checkPassword = await user.checkPassword(password);
       if (checkPassword) {
         const token = newToken(user);
         return res.status(201).json({ token, user });
       }
-      return res.status(401).json({message:'Wrong Password'});
+      return res.status(401).json({ message: 'Wrong Password' });
     } catch (e) {
       console.error(e);
       return res.status(500).end();
@@ -56,7 +56,7 @@ const controllers = {
         .exec();
 
       if (!user) {
-        return res.status(400).end();
+        return res.status(400).json({message:"Wrong User ID"});
       }
       user.password = undefined;
       res.status(200).json({ data: user });

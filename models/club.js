@@ -21,6 +21,7 @@ const clubSchema = mongoose.Schema({
     required: true,
   },
   events: { type: [{ type: mongoose.Types.ObjectId, ref: 'Event' }] },
+  verified: { type: Boolean, default: false },
   ircchannel: String,
   instagram: String,
   facebook: String,
