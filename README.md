@@ -1,9 +1,9 @@
 # Nebula-Backend
 
-  ![Node.js CI](https://github.com/CodeChef-SMVDU/Nebula-Backend/workflows/Node.js%20CI/badge.svg)
+  ![Node.js CI](https://github.com//Nebula-Backend/workflows/Node.js%20CI/badge.svg)
 
 ## Project Description
-Nebula(project) is divided into two repositories. This repository contains the Backend codebase of the project. Checkout the frontend codebase over [here](https://github.com/CodeChef-SMVDU/Nebula-Frontend). This project aims to provide universities and communities with a platform which can be utilised to make the working of various clubs systematic. 
+Nebula(project) is divided into two repositories. This repository contains the Backend codebase of the project. Checkout the frontend codebase over [here](https://github.com/Bot-Academia/Nebula-Frontend). This project aims to provide universities and communities with a platform which can be utilised to make the working of various clubs systematic. 
 
 ## Prerequisite: 
 
@@ -28,11 +28,11 @@ Note: You can also use the MongoDB servers like Mlab or MongoDB Cluster server
 
 ## How to set up this project locally?
 
-- Move to: https://github.com/CodeChef-SMVDU/Nebula-Backend
+- Move to: https://github.com/Bot-Academia/Nebula-Backend
 - Fork the repo 
 - Clone the repo using: 
 ```sh
-    git clone https://github.com/CodeChef-SMVDU/Nebula-Backend.git
+    git clone https://github.com/Bot-Academia/Nebula-Backend.git
 ```
 - Now move to the project directory on your machine.
 ```
