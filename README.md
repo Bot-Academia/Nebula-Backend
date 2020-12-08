@@ -149,3 +149,6 @@ Nebula also provides an extensive list of issues, some of them includes labels l
 If there's no issue available currently, you can setup the project locally and find out the bugs/new features and open issues for that and discuss the bugs or features with the project maintainers or admins.
 
 After choosing an issue and doing changes in the code regarding that, you can open up a Pull Request (PR) to main branch to get your work reviewed and merged!
+
+We also have a public chat room on Slack. Drop by and say hello in case you wish to contribute!
+[![](https://img.shields.io/badge/chat-on_slack-purple.svg?style=for-the-badge&logo=slack)](https://join.slack.com/t/nebulaplatform/shared_invite/zt-jixsfnrq-SdncWSwsWKq9puEXcJgHyQ)
