@@ -3,7 +3,7 @@
   ![CodeQL](https://github.com/Bot-Academia/Nebula-Backend/workflows/CodeQL/badge.svg)
 
 ## Project Description
-Nebula(project) is divided into two repositories. This repository contains the Backend codebase of the project. Checkout the frontend codebase over [here](https://github.com/Bot-Academia/Nebula-Frontend). This project aims to provide universities and communities with a platform which can be utilised to make the working of various clubs systematic. 
+Nebula is divided into two repositories. This repository contains the Backend codebase of the project. Checkout the frontend codebase over [here](https://github.com/Bot-Academia/Nebula-Frontend). This project aims to provide universities and communities with a platform which can be utilised to make the working of various clubs systematic. 
 
 ## Prerequisite: 
 
