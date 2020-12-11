@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 const Event = require('../models/event');
 const Club = require('../models/club');
+const uploadImage = require('../utils/upload');
 
 // routes for "/"
 const getAll = () => async (req, res) => {
@@ -33,6 +34,9 @@ const createOne = () => async (req, res) => {
       event.createdBy = req.user._id;
       event.club= req.params.clubId;
       await event.save();
+      // if(req.file){
+      //   uploadImage(req.file,'events')
+      // }
       const newClub = await Club.findOneAndUpdate({ _id: req.params.clubId }, { $push: { events: event._id } }, { new: true });
       res.status(201).json({ data: event });
     } else {
