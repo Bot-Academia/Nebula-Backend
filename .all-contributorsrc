@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "codetheorem",
+      "name": "Hrishikesh Agarwal",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/54779517?v=4",
+      "profile": "https://sourcerer.io/codetheorem",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Nebula-Backend",
+  "projectOwner": "codewithvk",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
