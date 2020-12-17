@@ -1,6 +1,6 @@
 # Nebula-Backend
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
   ![CodeQL](https://github.com/Bot-Academia/Nebula-Backend/workflows/CodeQL/badge.svg)
@@ -168,6 +168,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://sourcerer.io/codetheorem"><img src="https://avatars3.githubusercontent.com/u/54779517?v=4" width="100px;" alt=""/><br /><sub><b>Hrishikesh Agarwal</b></sub></a><br /><a href="https://github.com/codewithvk/Nebula-Backend/commits?author=codetheorem" title="Code">💻</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/vinayak-sharma-141096193/"><img src="https://avatars0.githubusercontent.com/u/54861487?v=4" width="100px;" alt=""/><br /><sub><b>Vinayak Sharma</b></sub></a><br /><a href="https://github.com/codewithvk/Nebula-Backend/commits?author=vinayaksh42" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/koolgax99"><img src="https://avatars0.githubusercontent.com/u/55532999?v=4" width="100px;" alt=""/><br /><sub><b>Nihar Sanda</b></sub></a><br /><a href="https://github.com/codewithvk/Nebula-Backend/commits?author=koolgax99" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/CIPHERTron"><img src="https://avatars3.githubusercontent.com/u/56754747?v=4" width="100px;" alt=""/><br /><sub><b>Pritish Samal</b></sub></a><br /><a href="https://github.com/codewithvk/Nebula-Backend/commits?author=CIPHERTron" title="Code">💻</a></td>
   </tr>
 </table>
 
