@@ -1,4 +1,7 @@
 # Nebula-Backend
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
   ![CodeQL](https://github.com/Bot-Academia/Nebula-Backend/workflows/CodeQL/badge.svg)
 
@@ -152,3 +155,22 @@ After choosing an issue and doing changes in the code regarding that, you can op
 
 We also have a public chat room on Slack. Drop by and say hello in case you wish to contribute!
 [![](https://img.shields.io/badge/chat-on_slack-purple.svg?style=for-the-badge&logo=slack)](https://join.slack.com/t/nebulaplatform/shared_invite/zt-jixsfnrq-SdncWSwsWKq9puEXcJgHyQ)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://sourcerer.io/codetheorem"><img src="https://avatars3.githubusercontent.com/u/54779517?v=4" width="100px;" alt=""/><br /><sub><b>Hrishikesh Agarwal</b></sub></a><br /><a href="https://github.com/codewithvk/Nebula-Backend/commits?author=codetheorem" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
