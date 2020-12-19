@@ -1,0 +1,60 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "codetheorem",
+      "name": "Hrishikesh Agarwal",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/54779517?v=4",
+      "profile": "https://sourcerer.io/codetheorem",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "vinayaksh42",
+      "name": "Vinayak Sharma",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/54861487?v=4",
+      "profile": "https://www.linkedin.com/in/vinayak-sharma-141096193/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "koolgax99",
+      "name": "Nihar Sanda",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/55532999?v=4",
+      "profile": "https://github.com/koolgax99",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "CIPHERTron",
+      "name": "Pritish Samal",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/56754747?v=4",
+      "profile": "https://github.com/CIPHERTron",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "codewithvk",
+      "name": "Vivekkumar Javiya",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/61119120?v=4",
+      "profile": "https://github.com/codewithvk",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Nebula-Backend",
+  "projectOwner": "codewithvk",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
